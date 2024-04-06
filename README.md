@@ -1,4 +1,4 @@
-# Arrecada Araras
+# Arrecada Araras 🦜
 Projeto Integrador do 3º semestre da FATEC Araras
 
 # Objetivo 

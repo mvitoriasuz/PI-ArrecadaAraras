@@ -15,6 +15,41 @@
 
 </head>
 <body>
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+      <a href="index.html"><img src="./img/arara_nav.png" alt="Logotipo" height="55" class="img-nav"></a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse"> <!--botão da navbar no small-->
+        <i class="bi bi-list bi-color"></i>
+      </button>
+
+      <!--<div class="collapse navbar-collapse" id="navCollapse">-->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="./index.html" class="nav-link">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#busca" class="nav-link">Como Funciona</a>
+          </li>
+          <li class="nav-item">
+            <a href="./ongs.html" class="nav-link">ONGs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#carrossel" class="nav-link">Quem Somos?</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button class="btn-nav"><a href="login.html" class="nav-link"><i class="bi bi-person-circle"></i>Login</a></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
 
 <!-- Cadastro -->
 <section class="vh-100">
@@ -26,12 +61,10 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-2">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: white;">Cadastro</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color:white;">Cadastro</p>
 
                 <form method="post" action="salvarusuario" class="mx-1 mx-md-4">
-
-
-                  
+                 
                   <div class="d-flex flex-row align-items-center mb-2">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
@@ -45,7 +78,7 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example1c" style="color: white;">CPF</label>
-                      <input type="text" name="nome" id="form3Example1c" class="form-control inputcadastro" required />
+                      <input type="text" name="cpf" id="form3Example1c" class="form-control inputcadastro" required />
                       
                     </div>
                   </div>
@@ -77,21 +110,17 @@
                       
                     </div>
                   </div>
-
-                 
-
+                
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="buttonenviarcadastro" >Cadastrar-se</button> 
                   </div>
-
                 </form>
-
               </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="./img/arara_nav.png" class="img-fluid" alt="Sample image">
-
+              
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 text-end">
+                <img src="./img/arara_nav.png" class="direitinha" alt="Sample image">
               </div>
+            
             </div>
           </div>
         </div>

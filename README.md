@@ -1,4 +1,4 @@
-![image](https://github.com/mvitoriasuz/PI-ArrecadaAraras/assets/105829441/39a1341e-074e-4203-8709-e9c2d41f1c1d)# Arrecada Araras 🦜
+# Arrecada Araras 🦜
 Projeto Integrador do 3º semestre da FATEC Araras
 
 # Objetivo 

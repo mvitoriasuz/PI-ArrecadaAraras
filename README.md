@@ -1,8 +1,8 @@
-# Arrecada Araras 🦜
+![image](https://github.com/mvitoriasuz/PI-ArrecadaAraras/assets/105829441/39a1341e-074e-4203-8709-e9c2d41f1c1d)# Arrecada Araras 🦜
 Projeto Integrador do 3º semestre da FATEC Araras
 
 # Objetivo 
-
+É uma plataforma dedicada a combater a carência e promover o bem estar social. Nosso objetivo é facilitar o processo de doação, conectando os doadores individuais a Ongs e instituições de caridades na cidade de Araras, e permitir que essas organizações recebam contribuições por meio de transferências instantâneas via PIX. Buscamos promover transparência e responsabilidade social.
 
 ## Tecnologias utilizadas
 

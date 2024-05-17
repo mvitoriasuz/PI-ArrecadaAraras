@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ICONE -->
+    <link rel="icon" href="">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Reset CSS -->
+    <link rel ="stylesheet" type="text/css" href="../static/meu/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/meu/reset.css">
+    
+    
+
+    <title>Arrecada Araras</title>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+    <nav class="navbar navbar-expand-md fixed-top">
+      <div class="container">
+        <a href="index.html"><img src="../static/img/logo_nav.png" alt="Logotipo" height="55" class="img-nav"></a>
+  
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse"> <!--botão da navbar no small-->
+          <i class="bi bi-list bi-color"></i>
+        </button>
+  
+        <!--<div class="collapse navbar-collapse" id="navCollapse">-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#busca" class="nav-link">Como Funciona</a>
+            </li>
+            <li class="nav-item">
+              <a href="./ongs.html" class="nav-link">ONGs</a>
+            </li>
+            <li class="nav-item">
+              <a href="#carrossel" class="nav-link">Quem Somos?</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button class="btn-nav"><a href="login.html" class="nav-link"><i class="bi bi-person-circle"></i>Login</a></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+<section><div id="grad3" style="text-align:center;"> 
+    <div class="containercentro">    
+      <div class="login">
+          <h1> Login</h1>
+            <form method="post" action ="/authenticate">
+              
+              <input type="text" placeholder="Email" name="email" class="inputlogin"required>
+              <br><br>
+              <input type="password" placeholder="Senha" name="senha" class="inputlogin"required>
+              <br><br>
+              <button class="buttonenviar" type="submit">Enviar</button> 
+              <br><br>
+          </form>
+          <a href = "/cadastro" style="text-decoration: none;">
+            <div class ="buttoncadastro">
+              Cadastrar-se
+            </div>
+          </a>
+          
+        </label>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">    
+</body>
+</html>

@@ -1,7 +1,9 @@
 from django.urls import path
-from core import views
+from.views import cadastro, index  # Certifique-se de que o caminho de importação esteja correto
+
+app_name = 'core'
 
 urlpatterns = [
-    path('', views.cadastro_home, name='home'),
-    path('Cadastro/', views.cadastro, name='cadastro'),
+    path('', index, name='index'), 
+    path('Cadastro/', cadastro, name='cadastro'),
 ]

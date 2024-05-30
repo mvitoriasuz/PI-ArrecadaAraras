@@ -1,6 +1,6 @@
 from django.db import models
 
-class cadastromodel(models.Model):
+class CadastroModel(models.Model):
     nome = models.CharField('Nome', max_length=200)
     cpf = models.CharField('CPF', max_length=14)
     email = models.EmailField('email')
@@ -9,3 +9,4 @@ class cadastromodel(models.Model):
 
     def __str__(self):
         return self.nome
+

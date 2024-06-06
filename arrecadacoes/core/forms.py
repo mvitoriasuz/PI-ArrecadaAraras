@@ -1,5 +1,6 @@
+from django.contrib.auth import authenticate, login
 from django import forms
-from.models import CadastroModel  # Corrigindo o nome do modelo para seguir a convenção de nomes em Python
+from.models import CadastroModel
 from django.core.exceptions import ValidationError
 import re
 
@@ -46,3 +47,22 @@ class CadastroForm(forms.ModelForm):
     def clean_data_nasc(self):
         data_nasc = self.cleaned_data['data_nasc']
         return data_nasc
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    def clean(self):
+        cleaned_data = super().clean()
+        email = cleaned_data.get('email')
+        password = cleaned_data.get('password')
+
+        if email and password:
+            user = authenticate(email=email, password=password)
+            if user is not None:
+                login(request, user)  # Certifique-se de que 'request' está disponível no contexto
+                return cleaned_data
+            else:
+                raise forms.ValidationError("Email ou senha inválidos.")
+        else:
+            raise forms.ValidationError("Ambos os campos são obrigatórios.")

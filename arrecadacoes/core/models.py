@@ -25,5 +25,3 @@ class Doacao(models.Model):
 
     def __str__(self):
         return f"{self.donante.username} - {self.instituicao.nome}"
-
-

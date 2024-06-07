@@ -1,38 +1,34 @@
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING
+from pymongo.errors import DuplicateKeyError
+from datetime import datetime
 
-class DatabaseService:
-    def __init__(self, db_name, connection_string=None):
-        """
-        Inicializa a conexão com o MongoDB.
-
-        :param db_name: Nome do banco de dados ao qual você deseja se conectar.
-        :param connection_string: String de conexão opcional para especificar o host, porta e autenticação.
-                                 Se não fornecido, tentará conectar-se ao MongoDB local.
-        """
-        if connection_string:
-            self.client = MongoClient(connection_string)
-        else:
-            self.client = MongoClient('mongodb://localhost:27017/')
-        
+class DoacaoONGService:
+    def __init__(self, db_name='arrecadacoes', uri='mongodb://localhost:27017/'):
+        self.client = MongoClient(uri)
         self.db = self.client[db_name]
+        self.collection = self.db['doacao_ong']
+        # Verificando duplicidade no email
+        self.collection.create_index([("email", ASCENDING)], unique=True)
 
-    def insert_document(self, collection_name, document):
-        """
-        Insere um documento em uma coleção especificada.
+    def registrar_ong(self, nome, email, cpf, senha):
+        return {'error': 'O cadastro de ONGs deve ser feito em uma tela separada.'}
 
-        :param collection_name: Nome da coleção onde o documento será inserido.
-        :param document: Documento a ser inserido.
-        """
-        self.db[collection_name].insert_one(document)
+    def listar_ongs(self):
+        ongs = self.collection.find({}, {"_id": 0, "senha": 0})
+        return list(ongs)
 
-    def find_documents(self, collection_name, query):
-        """
-        Encontra documentos em uma coleção especificada com base em uma consulta.
+    def registrar_doacao(self, ong_id, doacao):
+        if not ong_id or not doacao:
+            return {'error': 'O ID da ONG e a descrição da doação são obrigatórios.'}
+        
+        documento = {
+            "ong_id": ong_id,
+            "doacao": doacao,
+            "data": datetime.now()
+        }
+        result = self.db['doacoes'].insert_one(documento)
+        return {'inserted_id': str(result.inserted_id)}
 
-        :param collection_name: Nome da coleção onde a busca será realizada.
-        :param query: Consulta a ser usada para encontrar os documentos.
-        :return: Um cursor para iterar sobre os documentos encontrados.
-        """
-        return self.db[collection_name].find(query)
-
-    # Você pode adicionar mais métodos conforme necessário para outras operações CRUD (Create, Read, Update, Delete).
+    def listar_doacoes(self):
+        doacoes = self.db['doacoes'].find({}, {"_id": 0})
+        return list(doacoes)

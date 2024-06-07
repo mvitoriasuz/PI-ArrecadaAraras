@@ -18,7 +18,7 @@ nav {
   background-color: #133C74;
   color: rgba(218, 224, 230, 0.582);
   border: 2px solid rgba(218, 224, 230, 0.582);
-  border-radius: 10px;
+  border-radius: 50px;
   float: right;
 }
 
@@ -284,7 +284,7 @@ hr {
   }
   
   .buttonDoar {
-    background-color: #19A438;
+    background-color: #10b981;
     color: #fff;
     font-weight: 700;
     border: none;

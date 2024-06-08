@@ -11,15 +11,15 @@ def index(request):
 def cadastro_view(request):
     if request.method == 'POST':
         form_cadastro = CadastroForm(request.POST)
-        if form_cadastro.is_valid(): 
+        if form_cadastro.is_valid():
             instance = form_cadastro.save()
             print("Registro salvo com sucesso:", instance)
-            return redirect('index')  
+            return redirect('core:index')
     else:
         form_cadastro = CadastroForm()
 
     contexto = {'form_cadastro': form_cadastro}
-    return render(request, "Cadastro.html", contexto)
+    return render(request, "cadastro.html", contexto)
 
 def login_view(request):
     if request.method == 'POST':
@@ -30,11 +30,13 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                # Redireciona o usuário para a página de origem, ou para a página inicial se não houver página de origem
-                return redirect(request.GET.get('next', reverse('index')))  
+                return redirect(request.GET.get('next', reverse('core:index')))
             else:
                 form.add_error(None, 'Usuário ou senha inválidos.')
     else:
         form = AuthenticationForm()
 
     return render(request, 'login.html', {'form': form})
+
+def ongs_view(request):
+    return render(request, 'ongs.html')

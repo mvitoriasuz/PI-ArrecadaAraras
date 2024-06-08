@@ -29,6 +29,7 @@ class DoacaoONGService:
         doacoes = self.db['doacoes'].find({}, {"_id": 0})
         return list(doacoes)
 
+
 class CadastroClienteService:
     def __init__(self, db_name='arrecadacoes', uri='mongodb://localhost:27017/'):
         self.client = MongoClient(uri)

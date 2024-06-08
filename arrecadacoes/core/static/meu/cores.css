@@ -18,37 +18,42 @@ main {
 
 /*navbar*/
 nav {
-    height: 60px;
-    box-shadow: 0px 4px 4px rgba(218, 224, 230, 0.582);
-    background-color: #133C74;
-    text-align: center;
+  height: 60px;
+  box-shadow: 0px 4px 4px rgba(218, 224, 230, 0.582);
+  background-color: #133C74;
+  text-align: center;
+}
+
+.navbar-nav-center {
+  flex: 1;
+  justify-content: center;
 }
 
 .navbar li a {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .navbar li a:hover {
-    color:rgb(0, 179, 255);
+  color:rgb(0, 179, 255);
 }
 
 .btn-nav {
-    background-color: #133C74;
-    color: rgba(218, 224, 230, 0.582);
-    border: 2px solid rgba(218, 224, 230, 0.582);
-    border-radius: 10px;
-    float: right;
+  background-color: #133C74;
+  color: rgba(218, 224, 230, 0.582);
+  border: 2px solid rgba(218, 224, 230, 0.582);
+  border-radius: 10px;
+  float: right;
 }
 
 .btn-nav:hover {
-    border: 2px solid;
-    box-shadow: 0px 4px 4px rgba(218, 224, 230, 0.582);
+  border: 2px solid;
+  box-shadow: 0px 4px 4px rgba(218, 224, 230, 0.582);
 }
 
 .amarelinho{
-    color: #FEC634;
-    font-size: 150%;
-    text-decoration: none;
+  color: #FEC634;
+  font-size: 150%;
+  text-decoration: none;
 }
 /*cadastro*/
 
@@ -90,18 +95,17 @@ nav {
    
   }
   
-  .perfil1-img{
+  .perfil-img {
     text-align: center;
-    cursor: pointer;
-    transition-duration: 200ms;
-  }
-  .perfil1-img img{
-    width: 50%;
-    height: 50%;
-  }
-  
-  
-  
+    width: 200px; /* Defina a largura desejada */
+    height: 200px; /* Defina a altura desejada */
+    margin: 0 auto; /* Centraliza a div */
+    overflow: hidden;
+    border-radius: 50%; /* Deixe a imagem circular, se desejar */
+    background: #f0f0f0; /* Cor de fundo para o espaço reservado */
+}
+ 
+   
   .perfil1-img:hover{
     transform: scale(1.1);
   }
@@ -116,29 +120,33 @@ nav {
     border-radius: 0.5rem;
     background: #fff;
   }
-  .perfil-img{
-    text-align: center;
-  }
-  .perfil-img img{
-    width: 70%;
-    height: 100%;
-  }
-  .perfil-img .file {
-    position: relative;
-    overflow: hidden;
-    margin-top: -20%;
-    width: 70%;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    background: #133C74;
-  }
-  .perfil-img .file input {
+
+  .perfil-img img {
     position: absolute;
-    opacity: 0;
-    right: 0;
     top: 0;
-  }
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Para manter a circularidade, se aplicável */
+    
+}
+.perfil-img .file {
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  background: #133C74;
+}
+.perfil-img .file input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
   .perfil-head h5{
     color: #333;
   }
@@ -265,7 +273,7 @@ nav {
     background-color: dodgerblue;
     border: none;
     padding: 15px;
-    width: 100%;
+    width: 76%;
     border-radius: 10px;
     color: white;
     font-size: 15px;

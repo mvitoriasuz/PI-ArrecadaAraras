@@ -9,7 +9,7 @@ Apresentação
 */
 
 .body{
-    background-color: #333; /* Ajuste para combinar com seu fundo */
+    background-color: hsl(0, 0%, 28%); /* Ajuste para combinar com seu fundo */
 
 }
 
@@ -41,6 +41,15 @@ Apresentação
     color: #ffffff;
     font-family: 'Jost';
     font-weight: 400;
+    width: 69% !important; 
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    padding-bottom: 2rem;
+    margin-top: var(--bs-gutter-y);
+
 }
 
 .button {
@@ -48,7 +57,7 @@ Apresentação
     color: #fff;
     font-family: 'Jost';
     font-weight: 700;
-    padding: 10px 3%;
+    padding: 8px 3%;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -97,8 +106,8 @@ Como eu realizo uma doação?
     background-image: url(../img_index/Imagem_de_fundo_onda.jpg);
     background-repeat: no-repeat;
     padding-top: 600px;
-    text-align: center;
     padding-top: 10rem;
+    text-align: center;
     padding-bottom: 5rem;  
 }
 
@@ -128,20 +137,16 @@ Visão Missão Valores
 ------------------------------------------------------------
 */
 
-
-#imagem_visao{
-    width: 249px;
-    height: 249px;
+@media (min-width: 768px) {
+    #missao-container .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+        margin-right: -15rem;
+    }
 }
 
-#texto_geral{
-    
-}
 
-#titulo{
-    text-align:end;
-    font-family: 'Jost';
-    color: #58C9ED;
-    font-weight: 700;
-    font-size: 30px;
+.imagens{
+    width: 15rem;
+    height: 15rem;
 }

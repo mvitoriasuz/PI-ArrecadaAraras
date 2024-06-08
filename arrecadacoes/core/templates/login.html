@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Carregar a tag estática -->
+    {% load static %}
     <!-- ICONE -->
-    <link rel="icon" href="">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <!-- Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Reset CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/meu/cores.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/meu/reset.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'meu/cores.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'meu/reset.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Arrecada Araras</title>
     <style>
@@ -22,17 +24,17 @@
         <header>
             <nav class="navbar navbar-expand-md fixed-top">
                 <div class="container">
-                    <a href="index.html"><img src="../static/img/logo_nav.png" alt="Logotipo" height="55" class="img-nav"></a>
+                    <a href="{% url 'core:index' %}"><img src="{% static 'img/logo_nav.png' %}" alt="Logotipo" height="55" class="img-nav"></a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navCollapse">
                         <i class="bi bi-list bi-color"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navCollapse">
                         <ul class="navbar-nav me-auto navbar-nav-center">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">Inicio</a>
+                                <a href="{% url 'core:index' %}" class="nav-link">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./ongs.html" class="nav-link">ONGs</a>
+                                <a href="{% url 'core:ongs' %}" class="nav-link">ONGs</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#carrossel" class="nav-link">Quem Somos?</a>
@@ -41,7 +43,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <button class="btn-nav">
-                                    <a href="login.html" class="nav-link"><i class="bi bi-person-circle"></i>Login</a>
+                                    <a href="{% url 'core:login' %}" class="nav-link"><i class="bi bi-person-circle"></i>Login</a>
                                 </button>
                             </li>
                         </ul>
@@ -54,18 +56,19 @@
         <main id="grad3" style="text-align:center;"> 
             <div class="containercentro">
                 <div class="login">
-                    <img src="../static/img/logo_nav.png" class="direitinha" width="150" alt="Sample image">
+                    <img src="{% static 'img/logo_nav.png' %}" class="direitinha" width="150" alt="Sample image">
                     <h3>Login</h3>
-                    <form method="post" action="/authenticate">
-                        <input type="text" placeholder="Email" name="email" class="inputlogin" required>
+                    <form method="post" action="{% url 'core:login' %}">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Email" name="username" class="inputlogin" required>
                         <br><br>
-                        <input type="password" placeholder="Senha" name="senha" class="inputlogin" required>
+                        <input type="password" placeholder="Senha" name="password" class="inputlogin" required>
                         <br><br>
                         <button class="buttonenviar" type="submit">Enviar</button>
                         <br><br>
                     </form>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <a href="cadastro.html">
+                        <a href="{% url 'core:cadastro' %}">
                             <button type="button" class="buttonenviarcadastro">Cadastrar-se</button>
                         </a>
                     </div>
@@ -87,9 +90,9 @@
                     <div class="col-md-6">
                         <h4>Links úteis</h4>
                         <ul class="navbar-nav">
-                            <li><a href="./index.html">Página Inicial</a></li>
-                            <li><a href="./ongs.html">ONGs</a></li>
-                            <li><a href="./index.html">Quem Somos?</a></li>
+                            <li><a href="{% url 'core:index' %}">Página Inicial</a></li>
+                            <li><a href="{% url 'core:ongs' %}">ONGs</a></li>
+                            <li><a href="{% url 'core:index' %}">Quem Somos?</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">

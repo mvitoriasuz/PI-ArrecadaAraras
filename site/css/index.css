@@ -14,7 +14,7 @@ Apresentação
 }
 
 #apresentacao {
-    background-image: url(../img_index/background_index.jpg);
+    background-image: url(../img/background_index.jpg);
     background-repeat: no-repeat;
     text-align: center;
     padding-top: 12rem;
@@ -103,7 +103,7 @@ Como eu realizo uma doação?
 */
 
 #passo_a_passo{
-    background-image: url(../img_index/Imagem_de_fundo_onda.jpg);
+    background-image: url(../img/Imagem_de_fundo_onda.jpg);
     background-repeat: no-repeat;
     padding-top: 600px;
     padding-top: 10rem;

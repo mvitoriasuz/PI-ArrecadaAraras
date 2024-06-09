@@ -15,7 +15,7 @@ Esse projeto foi desenvolvido com as seguintes ferramentas:
 </p>
 
 ## Documentos
-[Documentação]()
+[Documentação](https://github.com/mvitoriasuz/PI-ArrecadaAraras/blob/main/Especificação%20de%20Requisito%20de%20Software/Especificação_de_Requisito_de_Software_v1.pdf)
 
 ## Integrantes do Projeto
 - [Marcelo Gomes Salvador](https://github.com/marcelosalvador)

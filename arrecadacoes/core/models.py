@@ -19,10 +19,9 @@ class Instituicao(models.Model):
         return self.nome
 
 class Doacao(models.Model):
-    donate = models.ForeignKey(User, on_delete=models.CASCADE)
-    ong_nome = models.CharField('Nome da ONG', max_length=100)
-    item_doado = models.CharField('Item Doado', max_length=100)
-    quantidade_doada = models.PositiveIntegerField('Quantidade Doada')
+    ong_nome = models.CharField('Nome da ONG', max_length=100, null=True, blank=True)
+    item_doado = models.CharField('Item Doado', max_length=100, null=True, blank=True)
+    quantidade_doada = models.PositiveIntegerField('Quantidade Doada', null=True, blank=True)
     data_doacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

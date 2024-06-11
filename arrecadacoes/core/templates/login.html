@@ -16,7 +16,7 @@
     <title>Arrecada Araras</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper"> 
         <!-- Navbar -->
         <header>
             <nav class="navbar navbar-expand-md fixed-top">
@@ -53,8 +53,8 @@
         <main id="grad3" style="text-align:center;"> 
             <div class="containercentro">
                 <div class="login">
-                    <img src="{% static 'img/logo_nav.png' %}" class="direitinha" width="150" alt="Sample image">
-                    <h3>Login</h3>
+                    <img src="{% static 'img/arara_nav.png' %}" class="direitinha" width="150" alt="Sample image">
+                    <h3>Acessar</h3>
                     <form method="post" action="{% url 'core:login' %}">
                         {% csrf_token %}
                         <input type="text" placeholder="Email" name="username" class="inputlogin" required>

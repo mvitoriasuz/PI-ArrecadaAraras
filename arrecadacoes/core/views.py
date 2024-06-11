@@ -5,8 +5,9 @@ from django.urls import reverse
 from django.core.exceptions import ValidationError
 from .forms import CadastroForm
 from .services import CadastroClienteService  # Importação correta do serviço
-import requests
-from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from .models import Doacao
+from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html')
@@ -55,3 +56,25 @@ def login_view(request):
 
 def ongs_view(request):
     return render(request, 'ongs.html')
+
+@login_required
+def fazer_doacao(request):
+    if request.method == 'POST':
+        ong_nome = request.POST.get('ong_nome')
+        item_doado = request.POST.get('item_doado')
+        quantidade_doada = request.POST.get('quantidade_doada')
+
+        donate = request.user
+
+        doacao = Doacao.objects.create(
+            donante=donate,
+            ong_nome=ong_nome,
+            item_doado=item_doado,
+            quantidade_doada=quantidade_doada
+        )
+        
+        messages.success(request, 'Doação registrada com sucesso!')
+        return redirect('perfil_usuario')
+    else:
+        messages.error(request, 'Erro ao processar a doação. Tente novamente.')
+        return redirect('pagina_anterior')

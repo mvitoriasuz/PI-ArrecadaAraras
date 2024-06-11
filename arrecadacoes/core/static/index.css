@@ -9,17 +9,19 @@ Apresentação
 */
 
 .body{
-    background-color: hsl(0, 0%, 28%); /* Ajuste para combinar com seu fundo */
+    background-color: hsl(0, 0%, 28%);
 
 }
 
 #apresentacao {
-    background-image: url(../img/background_index.jpg);
+    background-image: url("../static/img/background_index.jpg"); 
     background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
     padding-top: 12rem;
     height: 600px;
 }
+
 
 #mensagem h1{
     color:#ffffff;
@@ -103,7 +105,7 @@ Como eu realizo uma doação?
 */
 
 #passo_a_passo{
-    background-image: url(../img/Imagem_de_fundo_onda.jpg);
+    background-image: url("../static/img/Imagem_de_fundo_onda.jpg");
     background-repeat: no-repeat;
     padding-top: 600px;
     padding-top: 10rem;

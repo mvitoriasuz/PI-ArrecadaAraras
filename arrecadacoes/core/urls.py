@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views 
 
 app_name = 'core'
 
@@ -8,5 +8,6 @@ urlpatterns = [
     path('cadastro/', views.cadastro_view, name='cadastro'),
     path('ongs/', views.ongs_view, name='ongs'),
     path('login/', views.login_view, name='login'),
-    path('fazer_doacao/', views.fazer_doacao, name='fazer_doacao'),  # Adicionando a URL para processamento de doação
+    path('logout/', views.logout_view, name='logout'),
+    path('doacao/', views.doacao_view, name='doacao'),
 ]

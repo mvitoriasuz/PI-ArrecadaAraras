@@ -64,3 +64,11 @@ class CadastroForm(forms.ModelForm):
         if 'error' in resultado:
             raise ValidationError(resultado['error'])
         return resultado
+    
+class LoginForm(forms.Form):
+    email = forms.EmailField(label="Email", max_length=254)
+    password = forms.CharField(label="Senha", widget=forms.PasswordInput)
+
+class DoacaoForm(forms.Form):
+    ong_id = forms.CharField(max_length=100)
+    descricao_doacao = forms.CharField(max_length=255)

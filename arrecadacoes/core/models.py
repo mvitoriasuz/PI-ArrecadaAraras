@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User 
 
 class CadastroModel(models.Model):
     nome = models.CharField('Nome', max_length=200)

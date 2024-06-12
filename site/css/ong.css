@@ -289,26 +289,28 @@ hr {
     font-weight: 700;
     border: none;
     margin-left: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    padding: 10px 50px;
+    border-radius: 10px;
   }
+
   .buttonDoar:hover {
     background-color: #059669;
   }
+
   .buttonInfo {
-    background-color: #1A52A5;
-    color: #fff;
+    background-color: #ffffff;
+    color: #1A52A5;
+    border-color: #1465de;
+    border-radius: 10px;
     font-weight: 700;
-    border: none;
     margin-right: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    padding: 2px 10px;
+
   }
   .buttonInfo:hover {
-    background-color: #2969f1;
+    background-color: #1a4dba;
     color: #ffffff;
   }
-
 
  /* ESTILO MODAL */
 

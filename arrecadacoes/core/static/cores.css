@@ -1,15 +1,16 @@
 html, body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 body {
   display: flex;
   flex-direction: column;
 }
 .wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 main {
   flex: 1;
@@ -82,6 +83,7 @@ nav {
 .direitinha{
     margin-left: auto;
     margin-right: auto;
+    height: auto;
 }
 
 /* perfil*/
@@ -213,29 +215,29 @@ nav {
  
 
 
-/* PAGINA login*/
-       
-    .inputlogin{
-    padding: 15px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    border-radius: 15px;
-    }
-  
-  .login {
-    background-color: #133C74;
-    position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 80px;
-    border-radius: 15px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-  }
+/* PAGINA login*/ 
+.login {
+  background-color: #133C74;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px; /* Ajuste o padding conforme necessário */
+  border-radius: 15px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  width: 350px; /* Defina a largura desejada */
+}
 
+.inputlogin {
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 15px;
+  width: calc(100% - 30px); /* Ajuste a largura do input para se adaptar ao padding */
+}
   
   button.marx:hover{
     background-color:#19875431;
@@ -258,35 +260,33 @@ nav {
     text-decoration: none;
   }
 
-  .buttoncadastro{
+  .buttonenviar {
+    background-color: dodgerblue;
+    border: none;
+    padding: 15px;
+    width: 38%; /* Ajuste a largura do botão para se adaptar à nova largura da div */
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.buttoncadastro {
     background-color: #19A438;
     border: none;
     padding: 15px;
-    width: 100%;
+    width: 100%; /* Ajuste a largura do botão para se adaptar à nova largura da div */
     border-radius: 10px;
     color: white;
     font-size: 15px;
     text-decoration: none;
-       
-   }
-   .buttonenviar{
-    background-color: dodgerblue;
-    border: none;
-    padding: 15px;
-    width: 76%;
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    
 }
 /*rodape*/
 
 footer {
   background: #133c74;
   padding: 10px;
-  position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .7), 0 2px 8px 0 rgba(0, 0, 0, .5), 0 1px 5px 0 rgba(0, 0, 0, .1);
-  position: sticky;
+  color: white;
 }
 
 footer h4 {
@@ -349,16 +349,13 @@ footer p span {
   color: white;
   background-color: #19A438;
 }
+
 .social-media i:hover {
   transform: scale(1.2);
 }
 
 hr {
   margin: 80px 20px;
-}
-
-#politicas {
-  margin-top: 90px;
 }
 
 
@@ -372,13 +369,14 @@ hr {
         padding: 80px;
         border-radius: 15px;
         color: #fff;
-        text-align: center;}
-    }
+        text-align: center;
+      }
+
     .direitinha{
         margin-left: auto;
         margin-right: auto;
     }
-
+  }
    
 @media screen and (min-width: 764px) and (max-width:1180px) {
     
@@ -394,4 +392,31 @@ hr {
     .direitinha{
         margin-left: auto;
         margin-right: auto;
+    }
+
+
+    @media screen and (min-width: 977px) and (max-width:1199px) {
+    
+      .login {
+        background-color: #133C74;
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px; /* Ajuste o padding conforme necessário */
+        border-radius: 15px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        width: 350px; /* Defina a largura desejada */
+      }
+      
+      .inputlogin {
+        padding: 15px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        border-radius: 15px;
+        width: calc(100% - 30px); /* Ajuste a largura do input para se adaptar ao padding */
+      }
     }

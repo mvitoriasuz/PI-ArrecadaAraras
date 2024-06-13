@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CadastroForm, DoacaoForm, LoginForm
-from .services import CadastroClienteService
+from .services import LogarUsuarioService
+from .models import Ong, TipoDoacao, ValorDoacao
 
 def index(request):
     return render(request, "index.html")
@@ -47,15 +47,63 @@ def logout_view(request):
     return redirect('core:index')
 
 def ongs_view(request):
-    return render(request, "ongs.html")
+    ongs = Ong.objects.all()
+    tipos_doacao = TipoDoacao.objects.all()
+    valores_doacao = ValorDoacao.objects.all()
+
+    contexto = {
+        'ongs': ongs,
+        'tipos_doacao': tipos_doacao,
+        'valores_doacao': valores_doacao,
+    }
+    return render(request, 'ongs.html', contexto)
+
 
 @login_required
 def doacao_view(request):
     if request.method == 'POST':
         form = DoacaoForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('core:index')
+            ong_nome = form.cleaned_data['ong_nome']
+            tipo_doacao = request.POST.get('tipo_doacao')
+            valor_doacao = request.POST.get('valor_doacao')
+
+            cliente_id = request.user.id
+
+            service = LogarUsuarioService()
+            resultado = service.fazer_doacao(cliente_id, ong_nome, tipo_doacao, valor_doacao)
+
+            if 'success' in resultado:
+                messages.success(request, "Doação registrada com sucesso.")
+                return redirect('core:index')
+            else:
+                messages.error(request, resultado.get('error', 'Erro ao fazer doação.'))
+        else:
+            messages.error(request, "Dados inválidos. Verifique os campos obrigatórios.")
     else:
         form = DoacaoForm()
-    return render(request, 'ongs.html', {'form': form})
+
+    ongs = Ong.objects.all()
+    tipos_doacao = TipoDoacao.objects.all()
+    valores_doacao = ValorDoacao.objects.all()
+    
+    return render(request, 'ongs.html', {'form': form, 'ongs': ongs, 'tipos_doacao': tipos_doacao, 'valores_doacao': valores_doacao})
+
+
+@login_required
+def meu_perfil(request):
+    usuario = request.user
+    service = LogarUsuarioService()
+    
+    doacoes_usuario = service.listar_doacoes_por_cliente(usuario.id)
+    total_doacoes = sum(float(doacao['valor_doacao']) for doacao in doacoes_usuario)
+    qtd_doacoes = service.contar_doacoes(usuario.id)
+    
+    context = {
+        'usuario': usuario,
+        'ultimas_doacoes': doacoes_usuario,
+        'total_doacoes': total_doacoes,
+        'qtd_doacoes': qtd_doacoes,
+    }
+
+    return render(request, 'meu_perfil.html', context)

@@ -18,8 +18,7 @@
         <nav class="navbar navbar-expand-md fixed-top">
             <div class="container">
                 <a href="{% url 'core:index' %}">
-                    <img src="{% static 'img/logo_nav.png' %}" alt="Logotipo" height="55" class="img-nav">
-                </a>
+                    <img src="{% static 'img/logo_nav.png' %}" alt="Logotipo" heights
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse">
                     <!--botão da navbar no small-->
                     <i class="bi bi-list bi-color"></i>
@@ -33,14 +32,14 @@
                         <a href="{% url 'core:ongs' %}" class="nav-link">ONGs</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#carrossel" class="nav-link">Quem Somos?</a>
+                        <a href="#missao_visao_valores" class="nav-link">Quem Somos?</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                        <button class="btn-nav">
-                           <a href="{% url 'core:login' %}" class="nav-link"><i class="bi bi-person-circle"></i>{{ user.username }}</a>
+                           <a href="{% url 'core:meu_perfil' %}" class="nav-link"><i class="bi bi-person-circle"></i>{{ user.username }}</a>
                        </button>
                    </li>
                         <li class="nav-item">

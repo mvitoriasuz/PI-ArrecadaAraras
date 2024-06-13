@@ -44,6 +44,7 @@ cd Scripts
 activate.bat
 cd ..
 cd ..
+cd..
 pip install -r requirements.txt
 cd arrecadacoes/
 python manage.py migrate

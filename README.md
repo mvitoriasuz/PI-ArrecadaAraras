@@ -17,7 +17,7 @@ Esse projeto foi desenvolvido com as seguintes ferramentas:
 </p>
 
 ## Documentos
-[Documentação](https://github.com/mvitoriasuz/PI-ArrecadaAraras/blob/main/Especificação%20de%20Requisito%20de%20Software/Especificação_de_Requisito_de_Software_v1.pdf)
+[Documentação](https://github.com/mvitoriasuz/PI-ArrecadaAraras/blob/main/Especificação%20de%20Requisito%20de%20Software/Especificação_de_Requisito_de_Software_v4_Final.pdf)
 
 ## Para rodar esse projeto você precisa realizar a seguinte instrução
 No ambiente Linux:

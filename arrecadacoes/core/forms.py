@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import CadastroModel
 from .services import CadastroClienteService
 import re
-from .models import Doacao, ValorDoacao, TipoDoacao
+from .models import Doacao
 
 class CadastroForm(forms.ModelForm):
     class Meta:

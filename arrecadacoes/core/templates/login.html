@@ -58,7 +58,6 @@
                 </div>
             </nav>
         </header>
-
         <main id="grad3" style="text-align:center;"> 
             <div class="container">
                 <div class="login containercentro">
@@ -69,7 +68,7 @@
                         {% if error_message %}
                             <p style="color: red;">{{ error_message }}</p>
                         {% endif %}
-                        <input type="text" placeholder="Email" name="username" class="inputlogin" required>
+                        <input type="email" placeholder="Email" name="email" class="inputlogin" required>
                         <br><br>
                         <input type="password" placeholder="Senha" name="password" class="inputlogin" required>
                         <br><br>
@@ -83,8 +82,8 @@
                     </div>
                 </div> 
             </div>
-        </main>
-
+        </main>              
+        
         <!-- Rodapé -->
         <footer>
             <div class="container">

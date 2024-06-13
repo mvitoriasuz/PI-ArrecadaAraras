@@ -52,8 +52,7 @@ MIDDLEWARE = [
 
 
 AUTHENTICATION_BACKENDS = [
-    "core.backends.MongoBackend",
-    "django.contrib.auth.backends.ModelBackend",
+    'django.contrib.auth.backends.ModelBackend'
 ]
 
 ROOT_URLCONF = "arrecadacoes.urls"

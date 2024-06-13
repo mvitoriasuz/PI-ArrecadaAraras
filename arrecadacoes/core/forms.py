@@ -1,35 +1,28 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import CadastroModel
+from django.contrib.auth.models import User
+from django.contrib import messages
+from .models import CadastroModel, Doacao
 from .services import CadastroClienteService
 import re
-from datetime import datetime
 
 class CadastroForm(forms.ModelForm):
     class Meta:
         model = CadastroModel
-        fields = ['nome', 'cpf', 'email', 'senha', 'data_nasc']
+        fields = ['nome', 'email', 'senha']
         widgets = {
             'senha': forms.PasswordInput(),
         }
         error_messages = {
             'nome': {'required': "Erro ao informar o campo nome."},
-            'cpf': {'required': "Erro ao informar o campo cpf."},
             'email': {'required': "Erro ao informar o campo email."},
             'senha': {'required': "Erro ao informar o campo senha."},
-            'data_nasc': {'required': "Erro ao informar o campo data_nasc."},
         }
 
     def clean_nome(self):
         nome = self.cleaned_data['nome']
         palavras = [w.capitalize() for w in nome.split()]
         return ' '.join(palavras)
-
-    def clean_cpf(self):
-        cpf = self.cleaned_data['cpf']
-        if not cpf.isdigit() or len(cpf) != 11:
-            raise ValidationError('CPF deve conter apenas onze dígitos.')
-        return cpf
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -43,32 +36,28 @@ class CadastroForm(forms.ModelForm):
             raise ValidationError('Sua senha deve ter pelo menos 10 caracteres.')
         return senha
 
-
-    def clean_data_nasc(self):
-        data_nasc = self.cleaned_data['data_nasc']
-        if isinstance(data_nasc, datetime):
-            data_nasc = data_nasc.date()
-        data_nasc_str = data_nasc.strftime('%Y-%m-%d')
-        return data_nasc_str
-
-    def registrar_cliente(self, commit=True):
+    def registrar_cliente(self, request, commit=True):
         data = self.cleaned_data
         cadastro_service = CadastroClienteService()
         resultado = cadastro_service.cadastrar_cliente(
             nome=data['nome'],
-            cpf=data['cpf'],
             email=data['email'],
             senha=data['senha'],
-            data_nasc=data['data_nasc']
         )
         if 'error' in resultado:
             raise ValidationError(resultado['error'])
+
+        # Criação do usuário no banco de dados
+        User.objects.create_user(username=data['email'], email=data['email'], password=data['senha'])
+
+        messages.success(request, "Cadastro realizado com sucesso!")
         return resultado
-    
+
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=254)
     password = forms.CharField(label="Senha", widget=forms.PasswordInput)
 
-class DoacaoForm(forms.Form):
-    ong_id = forms.CharField(max_length=100)
-    descricao_doacao = forms.CharField(max_length=255)
+class DoacaoForm(forms.ModelForm):
+    class Meta:
+        model = Doacao
+        fields = ['ong_nome', 'item_doado', 'descricao_doacao']

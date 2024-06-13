@@ -84,6 +84,9 @@
                 <div class="col-4">
                   <h6 class="font-semibold">Pagamento</h6>
                   <button class="button">Pagamento via Pix</button>
+                  {% if qr_code_url %}
+                    <img src="{{ qr_code_url }}" alt="QR Code">
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -136,6 +139,9 @@
                 <div class="col-4">
                   <h6 class="font-semibold">Pagamento</h6>
                   <button class="button">Pagamento via Pix</button>
+                  {% if qr_code_url %}
+                  <img src="{{ qr_code_url }}" alt="QR Code">
+                {% endif %}
                 </div>
               </div>
             </div>

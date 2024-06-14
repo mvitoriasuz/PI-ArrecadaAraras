@@ -6,6 +6,8 @@ from django.contrib import messages
 from .forms import CadastroForm, DoacaoForm, LoginForm
 from .services import LogarUsuarioService
 from .models import Ong, TipoDoacao, ValorDoacao
+from .advice_api import AdviceAPI
+from django.http import HttpResponse
 
 def index(request):
     return render(request, "index.html")
@@ -75,7 +77,7 @@ def doacao_view(request):
 
             if 'success' in resultado:
                 messages.success(request, "Doação registrada com sucesso.")
-                return redirect('core:index')
+                return redirect('core:expired_screen') 
             else:
                 messages.error(request, resultado.get('error', 'Erro ao fazer doação.'))
         else:
@@ -94,16 +96,38 @@ def doacao_view(request):
 def meu_perfil(request):
     usuario = request.user
     service = LogarUsuarioService()
-    
+
     doacoes_usuario = service.listar_doacoes_por_cliente(usuario.id)
+
     total_doacoes = sum(float(doacao['valor_doacao']) for doacao in doacoes_usuario)
     qtd_doacoes = service.contar_doacoes(usuario.id)
-    
+
+    ultimas_doacoes = []
+    for doacao in doacoes_usuario:
+        ultimas_doacoes.append({
+            'ong_nome': doacao['ong_nome'],
+            'tipo_doacao': doacao['tipo_doacao'],
+            'valor_doacao': doacao['valor_doacao'],
+            'data_doacao': doacao['data_doacao'].strftime('%d/%m/%Y')
+        })
+
     context = {
         'usuario': usuario,
-        'ultimas_doacoes': doacoes_usuario,
+        'ultimas_doacoes': ultimas_doacoes,
         'total_doacoes': total_doacoes,
         'qtd_doacoes': qtd_doacoes,
     }
 
     return render(request, 'meu_perfil.html', context)
+
+
+@login_required
+def expired_screen(request):
+    URL_API = "https://api.adviceslip.com/advice"
+    api = AdviceAPI(URL_API)
+    advice = api.get_advice()
+
+    if advice:
+        return render(request, 'expired_screen.html', {'advice': advice})
+    else:
+        return HttpResponse("Erro ao obter conselho da API")

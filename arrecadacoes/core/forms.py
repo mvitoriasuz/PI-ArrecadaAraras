@@ -64,7 +64,7 @@ class CadastroForm(forms.ModelForm):
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=254)
     password = forms.CharField(label="Senha", widget=forms.PasswordInput)
-
+    
 
 class DoacaoForm(forms.ModelForm):
     class Meta:

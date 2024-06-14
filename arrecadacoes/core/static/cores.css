@@ -29,7 +29,7 @@ nav {
   flex: 1;
   justify-content: center;
 }
-
+ 
 .navbar li a {
   color: rgb(255, 255, 255);
 }
@@ -280,6 +280,73 @@ nav {
     font-size: 15px;
     text-decoration: none;
 }
+
+
+.cadastro {
+  background-color: #133C74;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px; /* Ajuste o padding conforme necessário */
+  border-radius: 15px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  width: 350px; /* Defina a largura desejada */
+}
+
+.inputlogin {
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 15px;
+  width: calc(100% - 30px); /* Ajuste a largura do input para se adaptar ao padding */
+}
+  
+  button.marx:hover{
+    background-color:#19875431;
+    cursor: pointer;
+  }         
+  button:hover{
+    background-color: deepskyblue;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  button.modallogin{
+    background-color:#133C74;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  button.modalcadastro{
+    background-color:#19A438;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .buttonenviar {
+    background-color: dodgerblue;
+    border: none;
+    padding: 15px;
+    width: 38%; /* Ajuste a largura do botão para se adaptar à nova largura da div */
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.buttoncadastro {
+    background-color: #19A438;
+    border: none;
+    padding: 15px;
+    width: 100%; /* Ajuste a largura do botão para se adaptar à nova largura da div */
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
 
 
 

@@ -11,4 +11,5 @@ urlpatterns = [
     path('meu_perfil/', views.meu_perfil, name='meu_perfil'),
     path('logout/', views.logout_view, name='logout'),
     path('doacao/', views.doacao_view, name='doacao'),
+    path('expired_screen/', views.expired_screen, name='expired_screen'),
 ]

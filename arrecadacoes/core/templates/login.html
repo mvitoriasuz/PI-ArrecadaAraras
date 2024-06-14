@@ -7,7 +7,7 @@
     {% load static %}
     <title>Arrecada Araras</title>
     <!-- ICONE -->
-    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="icon" href="{% static 'img/arara_nav.png' %}">
     <!-- Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Reset CSS -->
@@ -58,14 +58,14 @@
                 </div>
             </nav>
         </header>
-        <main id="grad3" style="text-align:center;">  
+        <main id="grad3" style="text-align:center;">   
             <div class="container">
                 <div class="login containercentro">
                     <img src="{% static 'img/arara_nav.png' %}" class="direitinha" width="150" alt="Sample image">
                     <h3>Acessar</h3>
                     <form method="post" action="{% url 'core:login' %}">
                         {% csrf_token %}
-                        {% if error_message %}
+                        {% if error_message %} 
                             <p style="color: red;">{{ error_message }}</p>
                         {% endif %}
                         <input type="email" placeholder="Email" name="email" class="inputlogin" required>

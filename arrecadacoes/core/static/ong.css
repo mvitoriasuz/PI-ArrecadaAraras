@@ -149,6 +149,7 @@ footer .navbar-nav i{
   text-align: justify;
 }
 
+
 footer .navbar-nav a{
   color:#d4d4d4; 
   font-weight: 25px;
@@ -254,7 +255,7 @@ hr {
 
   .hospital-card {
     background-color: #fff;
-    border-radius: 1rem;
+ 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .hospital-card.dark-mode {
